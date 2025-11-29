@@ -1,5 +1,4 @@
 # Experiment 2: DDL Commands
-
 ## AIM
 To study and implement DDL commands and different types of constraints.
 
@@ -9,7 +8,7 @@ To study and implement DDL commands and different types of constraints.
 Used to create a new relation (table).
 
 **Syntax:**
-```sql
+```sql                                                        
 CREATE TABLE (
   field_1 data_type(size),
   field_2 data_type(size),
@@ -19,29 +18,29 @@ CREATE TABLE (
 ### 2. ALTER
 Used to add, modify, drop, or rename fields in an existing relation.
 (a) ADD
-```sql
+```sql                                                        
 ALTER TABLE std ADD (Address CHAR(10));
 ```
 (b) MODIFY
-```sql
+```sql                                                        
 ALTER TABLE relation_name MODIFY (field_1 new_data_type(size));
 ```
 (c) DROP
-```sql
+```sql                                                        
 ALTER TABLE relation_name DROP COLUMN field_name;
 ```
 (d) RENAME
-```sql
+```sql                                                        
 ALTER TABLE relation_name RENAME COLUMN old_field_name TO new_field_name;
 ```
 ### 3. DROP TABLE
 Used to permanently delete the structure and data of a table.
-```sql
+```sql                                  
 DROP TABLE relation_name;
 ```
 ### 4. RENAME
 Used to rename an existing database object.
-```sql
+```sql                                  
 RENAME TABLE old_relation_name TO new_relation_name;
 ```
 ### CONSTRAINTS
@@ -105,123 +104,192 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="772" height="345" alt="image" src="https://github.com/user-attachments/assets/7d4e5e17-f338-4ec1-9947-6070c46e7188" />
+
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Employees
+(
+    EmployeeID INTEGER ,
+    FirstName TEXT ,
+    LastName TEXT,
+    HireDate DATE
+);
+
 ```
 
 **Output:**
+<img width="826" height="155" alt="image" src="https://github.com/user-attachments/assets/65a0f50e-cd41-45cd-9445-6049ecb4367a" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="622" height="169" alt="image" src="https://github.com/user-attachments/assets/11692e41-9f90-41a0-acac-f8a4a296e83a" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE Bonuses
+(
+    BonusID  INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    BonusAmount REAL CHECK (BonusAmount>0),
+    BonusDate DATE,
+    Reason TEXT NOT NULL,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+
+);
 ```
 
 **Output:**
+<img width="828" height="135" alt="image" src="https://github.com/user-attachments/assets/2cbe228c-ebc3-47e1-b3f3-a8c0d6d5d1db" />
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="503" height="260" alt="image" src="https://github.com/user-attachments/assets/4f54c373-b978-41d5-8be6-9076552aa3f4" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+INSERT INTO Employee(EmployeeID, Name, Department, Salary)
+SELECT EmployeeID, Name, Department, Salary FROM  Former_employees;
 ```
 
 **Output:**
+<img width="832" height="189" alt="image" src="https://github.com/user-attachments/assets/3dd565d6-a93d-4e8e-90bf-92002daf69c8" />
 
-![Output3](output.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+
+<img width="781" height="181" alt="image" src="https://github.com/user-attachments/assets/e734838a-c546-49fd-9522-e6887870f97a" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+
+CREATE TABLE Department
+(
+    DepartmentID INTEGER PRIMARY KEY,
+    DepartmentName TEXT UNIQUE NOT NULL,
+    Location TEXT
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+
+<img width="832" height="131" alt="image" src="https://github.com/user-attachments/assets/3237db38-3152-45d2-9083-84d9aa18fbb9" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+
+<img width="828" height="221" alt="image" src="https://github.com/user-attachments/assets/45630d2e-0bdf-4127-b2dd-d584740ca509" />
+
 
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Employees
+(
+   EmployeeID INTEGER PRIMARY KEY,
+   FirstName  NOT NULL,
+   LastName NOT NULL,
+   Email UNIQUE,
+   Salary CHECK(Salary>0),
+   DepartmentID INTEGER,
+   FOREIGN KEY(DepartmentID) REFERENCES Departments(DepartmentID)
+   
+);
 ```
 
 **Output:**
 
-![Output5](output.png)
+
+<img width="815" height="198" alt="image" src="https://github.com/user-attachments/assets/9216891b-7d31-45e7-a57e-65818f9cf5f0" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+
+
+<img width="826" height="169" alt="image" src="https://github.com/user-attachments/assets/705ae53d-dcf3-4124-b501-da99a9ae39ea" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+ALTER TABLE  Student_details ADD COLUMN email TEXT NOT NULL DEFAULT 'Invalid';
+
 ```
 
 **Output:**
 
-![Output6](output.png)
+
+<img width="826" height="139" alt="image" src="https://github.com/user-attachments/assets/cecc3d65-d52a-4b50-9f0c-4b09f0783147" />
+
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+
+<img width="722" height="345" alt="image" src="https://github.com/user-attachments/assets/51a80de1-9adf-4cc0-b2be-5c093d3956b8" />
+
 
 ```sql
--- Paste your SQL code below for Question 7
+INSERT INTO Books(ISBN ,Title ,Author) VALUES ('978-6655443321'  , 'Big Data Analytics' ,'Karen Adams');
+
 ```
 
 **Output:**
 
-![Output7](output.png)
+
+<img width="832" height="178" alt="image" src="https://github.com/user-attachments/assets/26ae4f91-fcab-41f5-8a3a-0febcb80ecef" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+
+<img width="827" height="269" alt="image" src="https://github.com/user-attachments/assets/471ba0c8-bdee-499d-b5eb-d9bab57103b3" />
 
 ```sql
--- Paste your SQL code below for Question 8
+ALTER TABLE Student_details ADD COLUMN  ParentsNumber number;
+ALTER TABLE Student_details ADD COLUMN  Adhar_Number number;
 ```
 
 **Output:**
 
-![Output8](output.png)
+
+<img width="834" height="218" alt="image" src="https://github.com/user-attachments/assets/f0a1a4a8-c3eb-482e-9d52-4f2add2ba9b3" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+
+<img width="815" height="240" alt="image" src="https://github.com/user-attachments/assets/44b0c058-e88b-4f63-96df-6dba8e997e2f" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+ALTER table Employees ADD COLUMN  Date_of_joining Date ;
+ALTER table Employees RENAME Column  job_title to Designation;
 ```
 
 **Output:**
 
-![Output9](output.png)
+
+<img width="832" height="167" alt="image" src="https://github.com/user-attachments/assets/fbcae45f-3c1b-4c80-9ca2-7a0012c8d1e1" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+
+<img width="693" height="200" alt="image" src="https://github.com/user-attachments/assets/ccce6229-55d6-4cba-8e0b-4d06702e4c1c" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+Insert into Books( ISBN, Title, Author, Publisher, YearPublished)
+select ISBN, Title, Author, Publisher, YearPublished from  Out_of_print_books;
 ```
 
 **Output:**
 
-![Output10](output.png)
+
+<img width="827" height="138" alt="image" src="https://github.com/user-attachments/assets/6493ef47-77cc-406c-a6ff-d2f3ccfdbe1d" />
+
 
 
 ## RESULT
