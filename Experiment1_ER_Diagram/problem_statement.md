@@ -1,5 +1,5 @@
 # ER Diagram Workshop – Submission Template
-
+name : sandhiya sree b
 ## Objective
 To understand and apply ER modeling concepts by creating ER diagrams for real-world applications.
 
@@ -22,31 +22,30 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 - Payments tracked for memberships and sessions.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+<img width="818" height="904" alt="image" src="https://github.com/user-attachments/assets/331231a7-9d73-4110-b791-b2dbd276e04f" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity	|Attributes (PK, FK)	|Notes
+|Member	|MemberID ,Membership	 |Store member details
+|Trainer	|TrainerID,Name,Email,PhoneNumber	|Store Trainer details
+|Program	|ProgramID,Cost	|Programs like Zumbz/yoga
+|Session	|SessionID,SessionDate	|Tracks attendance
+|Payment	|PaymentID,Amount	|Tracks payments by members|
+
 
 ### Relationships and Constraints
+<img width="828" height="304" alt="image" src="https://github.com/user-attachments/assets/bfed91b2-7264-4de7-b158-899ee7e54b9f" />
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+
+
 
 ### Assumptions
-- 
-- 
-- 
+Program = recurring class; Session = specific instance.
+Payments cover both memberships and sessions.
+A Session links one Member and one Trainer.
+
 
 ---
 
@@ -64,31 +63,23 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+<img width="639" height="748" alt="image" src="https://github.com/user-attachments/assets/43d69e05-92e5-45f6-a9e8-d1fd4b2d2c10" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+<img width="838" height="326" alt="image" src="https://github.com/user-attachments/assets/9802bd63-ace9-4c99-bf25-89a1d4384f50" />
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+<img width="826" height="312" alt="image" src="https://github.com/user-attachments/assets/d914943e-0b58-445b-a673-fc2548d02e61" />
+
 
 ### Assumptions
-- 
-- 
-- 
+Overdue fines are stored per Loan record.
+BookCopy not modeled
+Rooms serve both events and study bookings.
 
 ---
 
@@ -106,31 +97,22 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+<img width="573" height="688" alt="image" src="https://github.com/user-attachments/assets/cdf4cda1-6901-413b-ab54-1473842cd5cc" />
+
 
 ### Entities and Attributes
+<img width="832" height="432" alt="image" src="https://github.com/user-attachments/assets/6f3feb39-72de-4c17-a00b-c6165177182e" />
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+<img width="825" height="313" alt="image" src="https://github.com/user-attachments/assets/25dabf22-acdd-4f3f-9e8f-45de04788b64" />
+
 
 ### Assumptions
-- 
-- 
-- 
+Walk-in customers are still recorded
+One bill per reservation
+Split payments not modeled; could extend with a Payment entity.
 
 ---
 
