@@ -15,13 +15,13 @@ These perform calculations on a set of values and return a single value.
 - **AVG()** – Average of values
 
 **Syntax:**
-```sql
+```sql        
 SELECT AGG_FUNC(column_name) FROM table_name WHERE condition;
 ```
 ### GROUP BY
 Groups records with the same values in specified columns.
 **Syntax:**
-```sql
+```sql        
 SELECT column_name, AGG_FUNC(column_name)
 FROM table_name
 GROUP BY column_name;
@@ -29,7 +29,7 @@ GROUP BY column_name;
 ### HAVING
 Filters the grouped records based on aggregate conditions.
 **Syntax:**
-```sql
+```sql        
 SELECT column_name, AGG_FUNC(column_name)
 FROM table_name
 GROUP BY column_name
